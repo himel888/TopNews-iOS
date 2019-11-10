@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		E64120D823789BC2009B07AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64120D723789BC2009B07AB /* AppDelegate.swift */; };
 		E64120DA23789BC2009B07AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64120D923789BC2009B07AB /* SceneDelegate.swift */; };
-		E64120DC23789BC2009B07AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64120DB23789BC2009B07AB /* ViewController.swift */; };
 		E64120DF23789BC2009B07AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E64120DD23789BC2009B07AB /* Main.storyboard */; };
 		E64120E123789BC3009B07AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E64120E023789BC3009B07AB /* Assets.xcassets */; };
 		E64120E423789BC3009B07AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E64120E223789BC3009B07AB /* LaunchScreen.storyboard */; };
 		E64120EF23789BC3009B07AB /* TopNews_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64120EE23789BC3009B07AB /* TopNews_iOSTests.swift */; };
 		E64120FA23789BC3009B07AB /* TopNews_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64120F923789BC3009B07AB /* TopNews_iOSUITests.swift */; };
+		E641210B23789FE3009B07AB /* NewsListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E641210A23789FE3009B07AB /* NewsListTableVC.swift */; };
+		E641210D2378A21F009B07AB /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = E641210C2378A21F009B07AB /* Article.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,6 @@
 		E64120D423789BC2009B07AB /* TopNews-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TopNews-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64120D723789BC2009B07AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E64120D923789BC2009B07AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E64120DB23789BC2009B07AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E64120DE23789BC2009B07AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E64120E023789BC3009B07AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E64120E323789BC3009B07AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		E64120F523789BC3009B07AB /* TopNews-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TopNews-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64120F923789BC3009B07AB /* TopNews_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNews_iOSUITests.swift; sourceTree = "<group>"; };
 		E64120FB23789BC3009B07AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E641210A23789FE3009B07AB /* NewsListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListTableVC.swift; sourceTree = "<group>"; };
+		E641210C2378A21F009B07AB /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +101,9 @@
 		E64120D623789BC2009B07AB /* TopNews-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				E64120D723789BC2009B07AB /* AppDelegate.swift */,
-				E64120D923789BC2009B07AB /* SceneDelegate.swift */,
-				E64120DB23789BC2009B07AB /* ViewController.swift */,
+				E641210923789F0A009B07AB /* Models */,
+				E641210823789EEC009B07AB /* ViewControllers */,
+				E641210723789D7B009B07AB /* Delegates */,
 				E64120DD23789BC2009B07AB /* Main.storyboard */,
 				E64120E023789BC3009B07AB /* Assets.xcassets */,
 				E64120E223789BC3009B07AB /* LaunchScreen.storyboard */,
@@ -126,6 +128,31 @@
 				E64120FB23789BC3009B07AB /* Info.plist */,
 			);
 			path = "TopNews-iOSUITests";
+			sourceTree = "<group>";
+		};
+		E641210723789D7B009B07AB /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E64120D723789BC2009B07AB /* AppDelegate.swift */,
+				E64120D923789BC2009B07AB /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		E641210823789EEC009B07AB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E641210A23789FE3009B07AB /* NewsListTableVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E641210923789F0A009B07AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E641210C2378A21F009B07AB /* Article.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E64120DC23789BC2009B07AB /* ViewController.swift in Sources */,
+				E641210D2378A21F009B07AB /* Article.swift in Sources */,
 				E64120D823789BC2009B07AB /* AppDelegate.swift in Sources */,
+				E641210B23789FE3009B07AB /* NewsListTableVC.swift in Sources */,
 				E64120DA23789BC2009B07AB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XT2V464L5M;
 				INFOPLIST_FILE = "TopNews-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,6 +481,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XT2V464L5M;
 				INFOPLIST_FILE = "TopNews-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
