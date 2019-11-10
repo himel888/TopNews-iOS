@@ -9,11 +9,11 @@
 import Foundation
 
 struct ArticleList: Decodable {
-    let articleList: [Article]
+    let articles: [Article]
 }
 
 struct Article: Decodable {
     
-    let title: String
-    let description: String
+    let title: String?
+    let description: String?
 }

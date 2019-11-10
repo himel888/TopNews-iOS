@@ -9,6 +9,8 @@
 import UIKit
 
 class NewsListTableVC: UITableViewController {
+    
+    var articles = [Article]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,28 +20,31 @@ class NewsListTableVC: UITableViewController {
     
     private func initialSetup() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        WebService().getArticles { (articles) in
+            if let articles = articles {
+                DispatchQueue.main.async {
+                    self.articles = articles
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return articles.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTVCell", for: indexPath) as! ArticleTVCell
+        let article = articles[indexPath.row]
 
-        // Configure the cell...
+        cell.titleLbl.text = article.title
+        cell.descriptionLbl.text = article.description
 
         return cell
     }
-    */
 
 }
