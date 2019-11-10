@@ -10,7 +10,7 @@ import UIKit
 
 class NewsListTableVC: UITableViewController {
     
-    var articles = [Article]()
+    var articleListViewModel: ArticleListViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,8 @@ class NewsListTableVC: UITableViewController {
         
         WebService().getArticles { (articles) in
             if let articles = articles {
+                self.articleListViewModel = ArticleListViewModel(articles: articles)
                 DispatchQueue.main.async {
-                    self.articles = articles
                     self.tableView.reloadData()
                 }
             }
@@ -34,15 +34,15 @@ class NewsListTableVC: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        return articleListViewModel != nil ? articleListViewModel.numberOfRows() : 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTVCell", for: indexPath) as! ArticleTVCell
-        let article = articles[indexPath.row]
+        let articleViewModel = articleListViewModel.getArticleViewModelFor(index: indexPath.row)
 
-        cell.titleLbl.text = article.title
-        cell.descriptionLbl.text = article.description
+        cell.titleLbl.text = articleViewModel.getTitle()
+        cell.descriptionLbl.text = articleViewModel.getDescription()
 
         return cell
     }
